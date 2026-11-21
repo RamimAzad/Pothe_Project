@@ -1,0 +1,74 @@
+export declare const colors: {
+    primary: {
+        DEFAULT: string;
+        DEFAULT_COLOR: string;
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+        dark: string;
+        light: string;
+        surface: string;
+        pale: string;
+    };
+    neutral: {
+        DEFAULT: string;
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+        950: string;
+        bg: string;
+        surface: string;
+        dark: string;
+        slateDark: string;
+        slateMedium: string;
+        muted: string;
+        subtle: string;
+        border: string;
+        borderStrong: string;
+    };
+    status: {
+        green: string;
+        amber: string;
+        red: string;
+        blue: string;
+        success: string;
+        successLight: string;
+        successBorder: string;
+        warning: string;
+        warningDark: string;
+        warningLight: string;
+        warningBorder: string;
+        danger: string;
+        dangerDark: string;
+        dangerLight: string;
+        dangerBorder: string;
+        info: string;
+        infoLight: string;
+        infoBorder: string;
+    };
+    traffic: {
+        light: string;
+        moderate: string;
+        heavy: string;
+    };
+    crowd: {
+        low: string;
+        med: string;
+        medium: string;
+        high: string;
+    };
+};

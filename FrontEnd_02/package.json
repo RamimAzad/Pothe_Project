@@ -1,0 +1,23 @@
+{
+  "name": "pothe-ecosystem",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pothe (পথে) - Smart Public Transport Tracking and Demand Prediction System",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "web/*"
+  ],
+  "scripts": {
+    "build:packages": "npm run --workspace=@pothe/design-tokens build && npm run --workspace=@pothe/mock-data build",
+    "build:all": "npm run build:packages && npm run --workspace=@pothe/passenger-app build && npm run --workspace=@pothe/checker-app build && npm run --workspace=@pothe/admin-portal build",
+    "dev:passenger": "npm run --workspace=@pothe/passenger-app dev",
+    "dev:checker": "npm run --workspace=@pothe/checker-app dev",
+    "dev:admin": "npm run --workspace=@pothe/admin-portal dev",
+    "build:apk:passenger": "npm run --workspace=@pothe/passenger-app build:apk",
+    "build:apk:checker": "npm run --workspace=@pothe/checker-app build:apk"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

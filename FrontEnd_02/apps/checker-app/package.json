@@ -1,0 +1,38 @@
+{
+  "name": "@pothe/checker-app",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Pothe Checker Field Entry Android & Web Application",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "cap:sync": "npx cap sync android",
+    "build:apk": "vite build && npx cap sync android && cd android && export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home && export ANDROID_HOME=/Users/ramimazad/Library/Android/sdk && ./gradlew assembleDebug && mkdir -p ../../../apk-output/checker && cp app/build/outputs/apk/debug/app-debug.apk ../../../apk-output/checker/checker-debug.apk"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@pothe/design-tokens": "*",
+    "@pothe/mock-data": "*",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.378.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.0.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}

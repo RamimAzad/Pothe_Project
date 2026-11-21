@@ -1,0 +1,53 @@
+export const mockNotifications = [
+    {
+        id: 'notif-1',
+        type: 'bus_approaching',
+        title: 'Bus DM-11-2345 approaching',
+        titleBn: 'বাস DM-11-2345 এগিয়ে আসছে',
+        message: 'Thikana Paribahan passed Kazipara checkpoint. Seats available.',
+        messageBn: 'ঠিকানা পরিবহন কাজীপাড়া চেকপয়েন্ট অতিক্রম করেছে। আসন খালি আছে।',
+        timeAgo: 'Just now',
+        timeAgoBn: '২ মিনিট আগে',
+        isUnread: true,
+        etaPill: 'ETA 5 min',
+        busId: 'bus-thikana-2345',
+    },
+    {
+        id: 'notif-2',
+        type: 'complaint_resolved',
+        title: 'Complaint #C-1042 Resolved',
+        titleBn: 'অভিযোগ #C-1042 সমাধান হয়েছে',
+        message: 'Admin has verified the fare overcharge issue and warned staff.',
+        messageBn: 'প্রশাসন অতিরিক্ত ভাড়া আদায়ের বিষয়টি যাচাই করে কর্মীকে সতর্ক করেছে।',
+        timeAgo: '15 min ago',
+        timeAgoBn: '১৫ মিনিট আগে',
+        isUnread: true,
+        complaintId: 'C-1042',
+    },
+    {
+        id: 'notif-3',
+        type: 'traffic_delay',
+        title: 'Heavy Traffic at Farmgate',
+        titleBn: 'ফার্মগেটে তীব্র যানজট',
+        message: 'Route Mirpur 10 ➔ Motijheel experiencing significant congestion.',
+        messageBn: 'মিরপুর ১০ ➔ মতিঝিল রুটে তীব্র যানজট লক্ষ্য করা গেছে।',
+        timeAgo: '35 min ago',
+        timeAgoBn: '৩৫ মিনিট আগে',
+        isUnread: false,
+        etaPill: '+12 min delay',
+    },
+];
+export const mockRouteSubscriptions = [
+    {
+        routeId: 'route-7',
+        routeName: 'Mirpur 10 ➔ Motijheel',
+        routeNameBn: 'মিরপুর ১০ ↔ মতিঝিল',
+        isEnabled: true,
+    },
+    {
+        routeId: 'route-farmgate-shahbag',
+        routeName: 'Farmgate ➔ Shahbag',
+        routeNameBn: 'ফার্মগেট ↔ শাহবাগ',
+        isEnabled: false,
+    },
+];

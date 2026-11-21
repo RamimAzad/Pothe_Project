@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pothe (পথে) - 24 UI Mockup Screens Gallery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+      background-color: #0B0F17;
+      color: #E2E8F0;
+    }
+
+    .bengali {
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    .phone-bezel {
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 12px #1E293B, 0 0 0 14px #0F172A;
+      border-radius: 44px;
+      overflow: hidden;
+      width: 390px;
+      height: 844px;
+      background: #F5F7F6;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Header Bar -->
+  <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div
+          class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#0F7B4F] to-[#2E9E5B] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-900/30">
+          পথে
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-xl font-black text-white tracking-tight">Pothe (পথে) UI Showcase</h1>
+            <span
+              class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">24
+              Screens</span>
+          </div>
+          <p class="text-xs text-slate-400">Dhaka Public Bus Tracking System · High-Fidelity Android Mockups (390×844
+            px)</p>
+        </div>
+      </div>
+
+      <!-- Filter Controls & Mode Switches -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="bg-slate-800 p-1 rounded-xl flex items-center border border-slate-700/80">
+          <button onclick="setFilter('all')" id="filter-all"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0F7B4F] text-white shadow">
+            All (24)
+          </button>
+          <button onclick="setFilter('passenger')" id="filter-passenger"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white">
+            Passenger (14)
+          </button>
+          <button onclick="setFilter('checker')" id="filter-checker"
+            class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white">
+            Checker (10)
+          </button>
+        </div>
+
+        <div class="bg-slate-800 p-1 rounded-xl flex items-center border border-slate-700/80">
+          <button onclick="setView('device')" id="btn-device"
+            class="view-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-700 text-white flex items-center gap-1.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" />
+            </svg>
+            Device View
+          </button>
+          <button onclick="setView('grid')" id="btn-grid"
+            class="view-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1.5">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z" />
+            </svg>
+            Grid View
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Showcase Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- DEVICE VIEW MODE -->
+    <div id="device-view-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Left: Screen Selector List -->
+      <div class="lg:col-span-4 bg-slate-900 border border-slate-800 rounded-3xl p-4 shadow-xl">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Screen Selection</span>
+          <span id="screen-count-badge" class="text-xs text-emerald-400 font-semibold">24 items</span>
+        </div>
+        <div id="screens-list" class="space-y-1.5 mt-3 max-h-[720px] overflow-y-auto custom-scrollbar pr-1">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Center: Android Phone Bezel Frame -->
+      <div class="lg:col-span-8 flex flex-col items-center">
+        <!-- Phone Frame Controls -->
+        <div class="flex items-center justify-between w-[390px] mb-3 px-2">
+          <button onclick="prevScreen()"
+            class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-bold flex items-center gap-1">
+            ← Prev
+          </button>
+          <span id="active-screen-label" class="text-xs font-extrabold text-emerald-400 tracking-wide">
+            P01: Splash & Language Selection
+          </span>
+          <button onclick="nextScreen()"
+            class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-bold flex items-center gap-1">
+            Next →
+          </button>
+        </div>
+
+        <!-- Android Device Frame -->
+        <div class="phone-bezel relative">
+          <!-- Hardware Camera Notch Pill -->
+          <div
+            class="absolute top-2.5 left-1/2 -translate-x-1/2 w-28 h-4 bg-black rounded-full z-30 pointer-events-none">
+          </div>
+
+          <!-- Active Screen Image Mockup -->
+          <img id="phone-screen-img" src="P01_splash_language.png" alt="Active Screen Mockup"
+            class="w-full h-full object-contain cursor-pointer" onclick="openModal(this.src)">
+        </div>
+
+        <!-- Screen Details Card -->
+        <div class="w-[390px] bg-slate-900 border border-slate-800 rounded-2xl p-4 mt-5 text-left shadow-lg">
+          <div class="flex items-center justify-between">
+            <span id="screen-part-tag"
+              class="text-[10px] uppercase tracking-wider font-extrabold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+              Passenger UI
+            </span>
+            <a id="download-link" href="P01_splash_language.png" download
+              class="text-xs font-bold text-slate-400 hover:text-white flex items-center gap-1">
+              ⬇ Download PNG
+            </a>
+          </div>
+          <h2 id="screen-detail-title" class="text-base font-extrabold text-white mt-2">P1. Splash and Language
+            Selection</h2>
+          <p id="screen-detail-desc" class="text-xs text-slate-300 mt-1 leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID VIEW MODE (Hidden by default) -->
+    <div id="grid-view-container" class="hidden">
+      <div id="grid-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Fullscreen Image Modal -->
+  <div id="img-modal"
+    class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm"
+    onclick="closeModal()">
+    <div class="relative max-h-full max-w-full flex flex-col items-center">
+      <button class="absolute -top-10 right-0 text-white font-bold text-lg bg-slate-800 px-3 py-1 rounded-xl">✕
+        Close</button>
+      <img id="modal-img" src="" class="max-h-[90vh] object-contain rounded-3xl border-4 border-slate-800 shadow-2xl">
+    </div>
+  </div>
+
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+    <p>Pothe (পথে) - Smart Public Transport Progressive Web App UI Design Suite · Dhaka, Bangladesh</p>
+    <p class="mt-1">Generated with Gemini Nano Banana 2.1 & Gemini 3.8 Flash Fallback Architecture</p>
+  </footer>
+
+  <script>
+    const screens = [
+      // PASSENGER UI (14)
+      { id: "P01_splash_language", part: "passenger", num: "P1", title: "Splash & Language Selection", bangla: "স্প্ল্যাশ ও ভাষা নির্বাচন", file: "P01_splash_language.png", desc: "Top logo with wordmark 'Pothe / পথে' and tagline 'Know your bus before it arrives'. Selectable English and বাংলা language cards (Bangla pre-selected), and primary Continue button." },
+      { id: "P02_registration", part: "passenger", num: "P2", title: "Registration", bangla: "অ্যাকাউন্ট খুলুন", file: "P02_registration.png", desc: "Passenger sign-up form with full name, phone (+880 prefix), password strength bar, terms agreement, subtle validation error state, and green 'Send OTP' button." },
+      { id: "P03_otp_verification", part: "passenger", num: "P3", title: "OTP Verification", bangla: "ফোন যাচাই করুন", file: "P03_otp_verification.png", desc: "6-digit segmented OTP verification screen with active field highlight, 42-second resend timer, custom numeric keypad, and green 'Verify' action." },
+      { id: "P04_login", part: "passenger", num: "P4", title: "Login", bangla: "স্বাগতম / লগইন", file: "P04_login.png", desc: "Passenger login screen with language toggle (EN | বাং), forgot password link, red inline retry error banner, 'Continue as guest' option, and Sign Up footer." },
+      { id: "P05_home_destination_search", part: "passenger", num: "P5", title: "Home: Destination Search", bangla: "গন্তব্য খুঁজুন", file: "P05_home_destination_search.png", desc: "Main entry point with greeting, detected GPS stop (Mirpur 10), swap destination input, recent destination chips, nearby bus radar cards, and active Home tab." },
+      { id: "P06_route_results", part: "passenger", num: "P6", title: "Route Results", bangla: "রুটের ফলাফল", file: "P06_route_results.png", desc: "Mirpur 10 → Motijheel route comparison with filter chips, recommended ribbon tag, distance, live traffic congestion pills, travel times, and 'View Buses' action." },
+      { id: "P07_buses_behind_me", part: "passenger", num: "P7", title: "Buses Behind Me (Core)", bangla: "আমার পেছনের বাস", file: "P07_buses_behind_me.png", desc: "The core passenger screen: freshness indicator (20s ago), segmented Most Likely and Less Likely probability tiers, big ETAs, crowd progress bars, and checkpoint warnings." },
+      { id: "P08_bus_detail", part: "passenger", num: "P8", title: "Bus Detail (Estimated Tracking)", bangla: "বাস ট্র্যাকিং বিস্তারিত", file: "P08_bus_detail.png", desc: "Route map with green trajectory line, dashed estimated position circle, crowd breakdown progress bars (Sitting 28/36, Standing 14/40), and checkpoint timeline." },
+      { id: "P09_route_crowd_level", part: "passenger", num: "P9", title: "Route Crowd Level", bangla: "রুটের ভিড়", file: "P09_route_crowd_level.png", desc: "Vertical checkpoint sequence from Mirpur 14 to Motijheel showing color-coded passenger load indicators, timestamped checker counts, and passenger stop highlight." },
+      { id: "P10_checker_counts", part: "passenger", num: "P10", title: "Checker Counts (Live Feed)", bangla: "চেকারের গণনা ফিড", file: "P10_checker_counts.png", desc: "Live timestamped feed of verified checker entries showing bus ID, seat and standing figures, verification badges, and inaccurate count reporting link." },
+      { id: "P11_submit_complaint", part: "passenger", num: "P11", title: "Submit Complaint", bangla: "অভিযোগ করুন", file: "P11_submit_complaint.png", desc: "Formal report submission with target chips (Checker, Bus Staff, Bus), complaint category picker, detailed description, photo attachment box, and privacy note." },
+      { id: "P12_my_complaints_tracking", part: "passenger", num: "P12", title: "My Complaints & Status", bangla: "আমার অভিযোগ ট্র্যাকিং", file: "P12_my_complaints_tracking.png", desc: "Status tabs (All, Open, In Review, Resolved) with expanded complaint #C-1042 displaying 4-step progress timeline, admin response note, and floating '+ New Complaint' button." },
+      { id: "P13_notifications_alerts", part: "passenger", num: "P13", title: "Notifications & Arrival Alerts", bangla: "বিজ্ঞপ্তি ও ট্র্যাকিং সতর্কতা", file: "P13_notifications_alerts.png", desc: "Dual tabs for notifications and subscribed route alerts with toggle switches (Mirpur 10 → Motijheel ON), ETA alert pills, traffic delay warnings, and unread badges." },
+      { id: "P14_profile_settings", part: "passenger", num: "P14", title: "Profile & Settings", bangla: "প্রোফাইল ও সেটিংস", file: "P14_profile_settings.png", desc: "User profile card with Verified badge, settings list (Language toggle, Password, Preferences), bottom sheet Edit Profile preview, and red outlined Log Out button." },
+
+      // CHECKER UI (10)
+      { id: "C01_checker_login", part: "checker", num: "C1", title: "Checker Login", bangla: "চেকার লগইন", file: "C01_checker_login.png", desc: "Extra-large, sunlight-readable high-contrast login screen with dark green header band, Checker ID and Password inputs, giant 60px green Log In button, and admin notice." },
+      { id: "C02_checker_home_dashboard", part: "checker", num: "C2", title: "Shift Dashboard", bangla: "চেকার ড্যাশবোর্ড", file: "C02_checker_home_dashboard.png", desc: "Duty dashboard with checker name Rahim Uddin, Mirpur 10 checkpoint, shift progress bar, location/network status chips, today stats, and huge 80px '+ New Bus Entry' button." },
+      { id: "C03_select_bus_id", part: "checker", num: "C3", title: "Select Bus ID (Tap 1)", bangla: "বাস নির্বাচন (ট্যাপ ১)", file: "C03_select_bus_id.png", desc: "Step 1 of 3: Direction tabs (Up/Down), search bar, and large 72px route bus tiles with bold IDs, company names, duplicate warning chip, and selected check highlight." },
+      { id: "C04_enter_passenger_counts", part: "checker", num: "C4", title: "Enter Passenger Counts (Taps 2 & 3)", bangla: "যাত্রী সংখ্যা (ট্যাপ ২ ও ৩)", file: "C04_enter_passenger_counts.png", desc: "Step 2 of 3: Two giant counter blocks for Sitting and Standing with 72px plus/minus buttons, auto server locked timestamp/GPS, soft capacity warning, and huge Submit button." },
+      { id: "C05_entry_submitted_success", part: "checker", num: "C5", title: "Entry Saved & Undo Window", bangla: "এন্ট্রি সংরক্ষিত ও সংশোধন", file: "C05_entry_submitted_success.png", desc: "Green check confirmation with entry summary, 4:32-minute countdown banner with Correct and Void actions, Next Bus primary button, and return to dashboard link." },
+      { id: "C06_entry_rejected_geofence_error", part: "checker", num: "C6", title: "Entry Rejected: Geofence Error", bangla: "চেকপয়েন্ট এরিয়া ত্রুটি", file: "C06_entry_rejected_geofence_error.png", desc: "Error state showing map illustration of checker blue dot 240m outside green geofence circle, validation rules list, Retry Location Check button, and back action." },
+      { id: "C07_entry_history", part: "checker", num: "C7", title: "Entry History", bangla: "আমার এন্ট্রি ইতিহাস", file: "C07_entry_history.png", desc: "Today/Yesterday filter chips, total summary strip (Total 48, Corrected 2, Voided 1), status pills (Saved, Corrected, Voided, Pending sync), and active Edit pencil button with countdown." },
+      { id: "C08_correct_or_void_entry", part: "checker", num: "C8", title: "Correct or Void Entry", bangla: "এন্ট্রি সংশোধন ও বাতিল", file: "C08_correct_or_void_entry.png", desc: "Correction editor with 3:10 remaining countdown, pre-filled counters with adjusted values highlighted, mandatory reason picker, dual Save/Void buttons, and audit trail notice." },
+      { id: "C09_offline_queue_sync", part: "checker", num: "C9", title: "Offline Queue & Sync", bangla: "অফলাইন কিউ ও সিঙ্ক", file: "C09_offline_queue_sync.png", desc: "Amber offline banner, 4 entries waiting local counter, queued entries with original timestamps, disabled Sync Now button with network hint, and last sync confirmation." },
+      { id: "C10_checker_profile_settings", part: "checker", num: "C10", title: "Checker Profile & Settings", bangla: "চেকার প্রোফাইল ও সেটিংস", file: "C10_checker_profile_settings.png", desc: "Checker identity card (#CHK-8801), assigned checkpoint/shift details, Large Text Mode toggle, language picker, zero-unsynced safe logout confirmation note, and Log Out button." }
+    ];
+
+    let currentFilter = 'all';
+    let activeIndex = 0;
+    let currentView = 'device';
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white';
+      });
+      document.getElementById(`filter-${filter}`).className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-[#0F7B4F] text-white shadow';
+
+      const filtered = getFilteredScreens();
+      document.getElementById('screen-count-badge').innerText = `${filtered.length} items`;
+
+      // If current activeIndex out of bounds for filter, reset to 0
+      const curr = filtered.find((s, idx) => s.id === screens[activeIndex].id);
+      if (!curr && filtered.length > 0) {
+        activeIndex = screens.findIndex(s => s.id === filtered[0].id);
+      }
+      renderScreenList();
+      renderActiveScreen();
+      renderGridView();
+    }
+
+    function setView(view) {
+      currentView = view;
+      if (view === 'device') {
+        document.getElementById('device-view-container').classList.remove('hidden');
+        document.getElementById('grid-view-container').classList.add('hidden');
+        document.getElementById('btn-device').className = 'view-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-700 text-white flex items-center gap-1.5';
+        document.getElementById('btn-grid').className = 'view-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1.5';
+      } else {
+        document.getElementById('device-view-container').classList.add('hidden');
+        document.getElementById('grid-view-container').classList.remove('hidden');
+        document.getElementById('btn-device').className = 'view-btn px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-400 hover:text-white flex items-center gap-1.5';
+        document.getElementById('btn-grid').className = 'view-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-700 text-white flex items-center gap-1.5';
+        renderGridView();
+      }
+    }
+
+    function getFilteredScreens() {
+      if (currentFilter === 'all') return screens;
+      return screens.filter(s => s.part === currentFilter);
+    }
+
+    function renderScreenList() {
+      const container = document.getElementById('screens-list');
+      container.innerHTML = '';
+      const list = getFilteredScreens();
+
+      list.forEach((s) => {
+        const isSelected = (screens[activeIndex].id === s.id);
+        const item = document.createElement('div');
+        item.className = `p-2.5 rounded-xl cursor-pointer transition flex items-center justify-between border ${isSelected
+            ? 'bg-emerald-950/70 border-emerald-500 text-white shadow-sm'
+            : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800'
+          }`;
+        item.onclick = () => {
+          activeIndex = screens.findIndex(x => x.id === s.id);
+          renderScreenList();
+          renderActiveScreen();
+        };
+
+        item.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <span class="w-7 h-7 rounded-lg ${s.part === 'passenger' ? 'bg-emerald-900/60 text-emerald-400' : 'bg-teal-900/60 text-teal-300'} font-black text-xs flex items-center justify-center shrink-0">
+              ${s.num}
+            </span>
+            <div>
+              <div class="text-xs font-bold ${isSelected ? 'text-white' : 'text-slate-200'}">${s.title}</div>
+              <div class="text-[10px] text-slate-400 bengali">${s.bangla}</div>
+            </div>
+          </div>
+          <span class="text-[10px] px-1.5 py-0.5 rounded font-bold ${s.part === 'passenger' ? 'bg-emerald-950 text-emerald-300' : 'bg-teal-950 text-teal-300'}">
+            ${s.part === 'passenger' ? 'Pax' : 'Chk'}
+          </span>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function renderActiveScreen() {
+      const s = screens[activeIndex];
+      document.getElementById('active-screen-label').innerText = `${s.num}: ${s.title}`;
+      document.getElementById('phone-screen-img').src = s.file;
+      document.getElementById('screen-detail-title').innerText = `${s.num}. ${s.title} (${s.bangla})`;
+      document.getElementById('screen-detail-desc').innerText = s.desc;
+      document.getElementById('screen-part-tag').innerText = s.part === 'passenger' ? 'Passenger UI' : 'Checker UI';
+      document.getElementById('download-link').href = s.file;
+    }
+
+    function prevScreen() {
+      const filtered = getFilteredScreens();
+      const currFilteredIdx = filtered.findIndex(s => s.id === screens[activeIndex].id);
+      if (currFilteredIdx > 0) {
+        activeIndex = screens.findIndex(s => s.id === filtered[currFilteredIdx - 1].id);
+      } else {
+        activeIndex = screens.findIndex(s => s.id === filtered[filtered.length - 1].id);
+      }
+      renderScreenList();
+      renderActiveScreen();
+    }
+
+    function nextScreen() {
+      const filtered = getFilteredScreens();
+      const currFilteredIdx = filtered.findIndex(s => s.id === screens[activeIndex].id);
+      if (currFilteredIdx < filtered.length - 1) {
+        activeIndex = screens.findIndex(s => s.id === filtered[currFilteredIdx + 1].id);
+      } else {
+        activeIndex = screens.findIndex(s => s.id === filtered[0].id);
+      }
+      renderScreenList();
+      renderActiveScreen();
+    }
+
+    function renderGridView() {
+      const container = document.getElementById('grid-cards-container');
+      container.innerHTML = '';
+      const list = getFilteredScreens();
+
+      list.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-lg hover:border-emerald-500/60 transition group flex flex-col';
+        card.innerHTML = `
+          <div class="h-80 bg-slate-950 overflow-hidden relative flex items-center justify-center p-2 cursor-pointer" onclick="openModal('${s.file}')">
+            <img src="${s.file}" alt="${s.title}" class="max-h-full object-contain rounded-xl group-hover:scale-102 transition duration-300">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-bold gap-1">
+              <span>🔍 Click to Expand</span>
+            </div>
+          </div>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${s.part === 'passenger' ? 'bg-emerald-950 text-emerald-400 border border-emerald-800/60' : 'bg-teal-950 text-teal-300 border border-teal-800/60'}">
+                  ${s.part === 'passenger' ? 'Passenger UI' : 'Checker UI'}
+                </span>
+                <span class="text-xs font-black text-slate-400">${s.num}</span>
+              </div>
+              <h3 class="text-sm font-extrabold text-white mt-1.5 leading-snug">${s.title}</h3>
+              <p class="text-[11px] text-slate-400 bengali mt-0.5">${s.bangla}</p>
+              <p class="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">${s.desc}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <a href="${s.file}" download class="text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
+                ⬇ Download
+              </a>
+              <button onclick="selectAndShow('${s.id}')" class="text-slate-400 hover:text-white font-semibold">
+                📱 View on Device
+              </button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function selectAndShow(screenId) {
+      activeIndex = screens.findIndex(s => s.id === screenId);
+      setView('device');
+      renderScreenList();
+      renderActiveScreen();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function openModal(src) {
+      document.getElementById('modal-img').src = src;
+      document.getElementById('img-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('img-modal').classList.add('hidden');
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextScreen();
+      if (e.key === 'ArrowLeft') prevScreen();
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Initial render
+    renderScreenList();
+    renderActiveScreen();
+  </script>
+</body>
+
+</html>
